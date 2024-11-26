@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 import { BarChart, Users, Key, Shield } from "lucide-react";
 import { KeyManagement } from "@/components/KeyManagement";
+import { ResellersManagement } from "@/components/ResellersManagement";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Dashboard = () => {
@@ -74,7 +75,7 @@ const Dashboard = () => {
           </Card>
         </div>
 
-        {/* Key Management Section */}
+        {/* Main Content Tabs */}
         <Tabs defaultValue="keys" className="w-full">
           <TabsList>
             <TabsTrigger value="keys">License Keys</TabsTrigger>
@@ -84,7 +85,7 @@ const Dashboard = () => {
             <KeyManagement userRole={user.role} />
           </TabsContent>
           <TabsContent value="resellers">
-            {user.role === 'admin' && <div>Reseller management coming soon...</div>}
+            {user.role === 'admin' && <ResellersManagement />}
           </TabsContent>
         </Tabs>
       </div>

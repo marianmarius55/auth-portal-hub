@@ -7,7 +7,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
 import { KeyDuration, LicenseKey } from "@/types/keys";
-import { Ban, Eye, KeyRound } from "lucide-react";
+import { Ban, Eye, KeyRound, RotateCw } from "lucide-react";
 
 interface KeyManagementProps {
   userRole: 'admin' | 'reseller' | 'user';
@@ -26,6 +26,11 @@ export const KeyManagement = ({ userRole }: KeyManagementProps) => {
   const handleBanKey = (keyId: string) => {
     // Mock function - replace with actual API call
     toast.success('Key banned successfully');
+  };
+
+  const handleResetHWID = (keyId: string) => {
+    // Mock function - replace with actual API call
+    toast.success('HWID reset successfully');
   };
 
   return (
@@ -128,10 +133,15 @@ export const KeyManagement = ({ userRole }: KeyManagementProps) => {
                         </div>
                       </DialogContent>
                     </Dialog>
-                    {userRole === 'admin' && (
-                      <Button variant="destructive" size="icon" onClick={() => handleBanKey('mock-id')}>
-                        <Ban className="h-4 w-4" />
-                      </Button>
+                    {(userRole === 'admin' || userRole === 'reseller') && (
+                      <>
+                        <Button variant="outline" size="icon" onClick={() => handleResetHWID('mock-id')}>
+                          <RotateCw className="h-4 w-4" />
+                        </Button>
+                        <Button variant="destructive" size="icon" onClick={() => handleBanKey('mock-id')}>
+                          <Ban className="h-4 w-4" />
+                        </Button>
+                      </>
                     )}
                   </div>
                 </TableCell>
