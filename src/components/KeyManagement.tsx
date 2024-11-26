@@ -4,9 +4,10 @@ import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
 import { KeyDuration, LicenseKey } from "@/types/keys";
-import { Ban, Eye, KeyRound, Shield } from "lucide-react";
+import { Ban, Eye, KeyRound } from "lucide-react";
 
 interface KeyManagementProps {
   userRole: 'admin' | 'reseller' | 'user';
